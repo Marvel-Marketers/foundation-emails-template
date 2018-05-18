@@ -12,6 +12,7 @@ import path     from 'path';
 import merge    from 'merge-stream';
 import beep     from 'beepbeep';
 import colors   from 'colors';
+import include from 'gulp-include';
 
 const $ = plugins();
 
@@ -24,7 +25,7 @@ var CONFIG;
 
 // Build the "dist" folder by running all of the below tasks
 gulp.task('build',
-  gulp.series(clean, pages, sass, images, inline));
+  gulp.series(clean, install, pages, sass, images, inline));
 
 // Build emails, run the server, and watch for file changes
 gulp.task('default',
@@ -41,6 +42,24 @@ gulp.task('mail',
 // Build emails, then zip
 gulp.task('zip',
   gulp.series('build', zip));
+
+gulp.task('install',
+  gulp.series(install));
+  
+function install(){
+  //Read package.json for mmmt-*
+  //Load file.hbs & Save to partials/*
+  //Export file documentation to pages
+    return gulp.src("src/mmmt-*")
+    .pipe(include(
+      {
+        extensions: "hbs"
+       // includePaths: ""
+      }
+    ))
+      .on('error', console.log)
+    .pipe(gulp.dest("src/partials"));
+  }
 
 // Delete the "dist" folder
 // This happens every time a build starts
