@@ -1,8 +1,21 @@
----
-subject: My Basic Email Template Subject
----
 
-<wrapper class="header">
+
+
+{{> mmmt-hero 
+  id="hero-image" 
+  border="3px dotted blue" 
+  name="Hero_Image" 
+  module="yes" 
+  title="Hero" 
+  image="http://via.placeholder.com/600x300" 
+  top="0" 
+  full="1" 
+  bottom="25"
+}}
+
+
+
+<!-- <wrapper class="header">
   <container>
     <row class="collapse">
       <columns small="6">
@@ -13,15 +26,16 @@ subject: My Basic Email Template Subject
       </columns>
     </row>
   </container>
-</wrapper>
+</wrapper> -->
+
 
 <container>
 
   <spacer size="16"></spacer>
-  
+
   <row>
     <columns small="12">
-      
+
       <h1>Hi, Susan Calvin</h1>
       <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni, iste, amet consequatur a veniam.</p>
       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut optio nulla et, fugiat. Maiores accusantium nostrum asperiores provident, quam modi ex inventore dolores id aspernatur architecto odio minima perferendis, explicabo. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima quos quasi itaque beatae natus fugit provident delectus, magnam laudantium odio corrupti sit quam. Optio aut ut repudiandae velit distinctio asperiores?</p>
@@ -44,7 +58,9 @@ subject: My Basic Email Template Subject
       <columns large="6">
         <h5>Contact Info:</h5>
         <p>Phone: 408-341-0600</p>
-        <p>Email: <a href="mailto:foundation@zurb.com">foundation@zurb.com</a></p>
+        <p>Email:
+          <a href="mailto:foundation@zurb.com">foundation@zurb.com</a>
+        </p>
       </columns>
     </row>
   </wrapper>

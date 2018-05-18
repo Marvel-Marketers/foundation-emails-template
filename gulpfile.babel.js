@@ -54,7 +54,7 @@ function install(){
     .pipe(include(
       {
         extensions: "hbs"
-       // includePaths: ""
+        //includePaths: ""
       }
     ))
       .on('error', console.log)
@@ -127,7 +127,7 @@ function server(done) {
 // Watch for file changes
 function watch() {
   gulp.watch('src/pages/**/*.html').on('all', gulp.series(pages, inline, browser.reload));
-  gulp.watch(['src/layouts/**/*', 'src/partials/**/*']).on('all', gulp.series(resetPages, pages, inline, browser.reload));
+  gulp.watch(['src/layouts/**/*', 'src/partials/**/*','src/*.hbs']).on('all', gulp.series(resetPages, pages, inline, browser.reload));
   gulp.watch(['../scss/**/*.scss', 'src/assets/scss/**/*.scss']).on('all', gulp.series(resetPages, sass, pages, inline, browser.reload));
   gulp.watch('src/assets/img/**/*').on('all', gulp.series(images, browser.reload));
 }

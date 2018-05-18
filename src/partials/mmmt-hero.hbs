@@ -1,0 +1,29 @@
+
+{{!-- 
+* Hero
+* Author: Matt Fellows
+* version: 
+* repository: 
+
+Parameters - default 
+* id - 
+* name - 
+* module - no
+* border: 0px solid none; 
+* image: url (srcSet?)
+* link - no 
+* title - ""
+
+--}}
+
+<container id="{{name}}-{{id}}" class="{{#if module}}mktoModule{{else}}{{/if}}" {{#if module}}mktoName="{{name}}" {{else}}{{/if}}>
+    <row>
+        <columns small="12" large="12" {{#if full}}style="padding-left:0px; padding-right:0px;" {{else}}{{/if}}>
+            <spacer size="{{top}}"></spacer>
+            <a href="{{cta-url}}">
+                <img id="{{name}}-{{id}}-image" class="{{#if module}}mktoImg{{else}}{{/if}}" {{#if module}}mktoName="{{name}} - Image" {{else}}{{/if}}width="600" style="width:600px;{{#if border}}border:{{border}}{{/if}}" title="{{title}}" src="{{image}}" />
+            </a>
+            <spacer size="{{bottom}}"></spacer>
+        </columns>
+    </row>
+</container>
